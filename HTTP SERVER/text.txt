@@ -1,18 +1,4 @@
-1737469247511: new request found 
-1737469247553: new request found 
-1737469263493: new request found 
-1737469263540: new request found 
-1737469339437: new request found 
-1737469339479: new request found 
-1737469389742: new request found 
-1737469389792: new request found 
-1737469456132: new request found 
-1737469456186: new request found 
-1737469700685:/ new request found 
-1737469700762:/favicon.ico new request found 
-1737469720116:/ahmed new request found 
-1737469720183:/favicon.ico new request found 
-1737469934726: /ahmed new request found 
-1737469934909: /favicon.ico new request found 
-1737469942798: / new request found 
-1737469942857: /favicon.ico new request found 
+1737626322086: new request found GET 
+Path: /search
+Query 1: 200
+Query 2: Ahmed Shahi
