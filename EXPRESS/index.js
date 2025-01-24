@@ -1,6 +1,10 @@
 const express = require('express')
-const users = require('./MOCK_DATA.json')
+const fs = require('fs')
+const users = require('./MOCK_DATA.json');
 const app = express();
+
+// Middleware
+app.use(express.urlencoded({extended : false}))
 
 app.get('/api/users',(req,res)=>{
     res.json(users)
@@ -13,12 +17,32 @@ app.get('/api/users/:id',(req,res)=>{
     return res.send(user)
 })
 
-// app.get('/api/users/:name',(req,res)=>{
-//     const name = req.params.name
-//     const user = users.find( (user) => user.first_name === name)
-//     return res.send(user)
-// })
+app.post('/api/users',(req,res)=>{
+    const body = req.body
+    users.push({id : users.length + 1,...body})
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users),(err,data)=>{
+        
+        return res.json({status : "Done!!"})
+   
+    })
+})
 
+app.delete('/api/users',(req,res)=>{
+
+    const body = Number(req.body.ID)    
+    const user = [users.find((u)=> u.id === body)]
+    const index = [users.findIndex((u)=> u.id === body)]
+    
+
+    users.splice(index,1)
+    
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users),(err,data)=>{
+        
+        return res.json({status : "Done!!"})
+   
+    })
+
+})
 
 app.listen('8000')
 
